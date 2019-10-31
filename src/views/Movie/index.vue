@@ -1,6 +1,6 @@
 <template>
   <div id="main">
-    <Header title="喵喵电影"></Header>
+    <Header title="张爽爽电影"></Header>
     <div id="content">
       <div class="movie_menu">
         <router-link to="city" tag="div" class="city_name">
