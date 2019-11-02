@@ -1,10 +1,10 @@
 <template>
   <div id="main">
-    <Header title="张爽爽电影"></Header>
+    <Header title="张爽爽要看电影"></Header>
     <div id="content">
       <div class="movie_menu">
         <router-link to="city" tag="div" class="city_name">
-          <span>大连</span>
+          <span>{{$store.state.city.nm}}</span>
           <i class="iconfont icon-lower-triangle"></i>
         </router-link>
         <div class="hot_swtich">

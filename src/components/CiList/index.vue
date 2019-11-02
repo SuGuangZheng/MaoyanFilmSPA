@@ -1,5 +1,7 @@
 <template>
   <div class="cinema_body">
+    <loading v-if="isLoading"></loading>
+    <scroller v-else>
     <ul>
       <!-- <li>
         <div>
@@ -36,6 +38,7 @@
         </div>
       </li>
     </ul>
+    </scroller>
   </div>
 </template>
 
@@ -44,14 +47,26 @@ export default {
   name: "CiList",
   data(){
     return {
-      cinemaList:[]
+      cinemaList:[],
+      isLoading:true,
+      prevCity: -1,
     }
   },
-  mounted:function(){
-    this.axios.get("/api/cinemaList?cityId=10").then((res)=>{
+  activated:function(){
+    var cityId = this.$store.state.city.id;
+    // 城市没改变时不发送请求，
+    // 因为data中初始prevCity是-1，而cityId不可能是负数，保证了初次加载页面时能够正常发送请求
+    if (cityId === this.prevCity) {
+      return;
+    }
+    this.isLoading = true;
+    // 延吉是168
+    this.axios.get("/api/cinemaList?cityId="+cityId).then((res)=>{
       var msg = res.data.msg;
       if(msg === "ok"){
         this.cinemaList = res.data.data.cinemas;
+        this.isLoading = false;
+        this.prevCity = cityId;
       }
     });
   },

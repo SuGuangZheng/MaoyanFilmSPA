@@ -60,10 +60,12 @@ export default {
   }, //watch结束
   methods: {
     get(newVal) {
+var cityId = this.$store.state.city.id;
+
       var that = this;
 
       this.axios
-        .get("/api/searchList?cityId=10&kw=" + newVal, {
+        .get("/api/searchList?cityId="+cityId+"&kw=" + newVal, {
           cancelToken: new this.CancelToken(function(token) {
             that.cancel = token;
           })
