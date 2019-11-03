@@ -26,12 +26,42 @@
 <script>
 import Header from "@/components/Header";
 import TabBar from "@/components/TabBar";
-
+import { messageBox } from "@/components/JS";
 export default {
   name: "Movie",
   components: {
     Header,
     TabBar
+  },
+  mounted() {
+    setTimeout(() => {
+      this.axios.get("/api/getLocation").then(res => {
+        var msg = res.data.msg;
+        if (msg === "ok") {
+          var storageCityName = window.localStorage.getItem("nowCityName");
+
+          var nm = res.data.data.nm;
+          var id = res.data.data.id;
+          console.log(nm,storageCityName);
+          if (nm != storageCityName) {
+            messageBox({
+              title: "定位",
+              content: nm,
+              ok: "确定",
+              cancel: "切换城市",
+              // handleCancel() {},
+              handleOk() {
+                window.localStorage.setItem("nowCityName", nm);
+                window.localStorage.setItem("nowCityId", id);
+                window.location.reload();
+                // this.$store.commit("city/CITY_INFO", { nm, id });
+                // console.log(this);
+              }
+            });
+          }
+        }
+      });
+    }, 1000);
   }
 };
 </script>

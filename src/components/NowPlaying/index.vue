@@ -53,6 +53,7 @@ export default {
       prevCity: -1
     };
   },
+  //keep-alive中被重新点击/切换回来时，触发activated
   activated() {
     var cityId = this.$store.state.city.id;
     // 城市没改变时不发送请求，
