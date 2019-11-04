@@ -41,7 +41,9 @@ export default {
           var storageCityName = window.localStorage.getItem("nowCityName");
 
           var nm = res.data.data.nm;
-          var id = res.data.data.id;
+          // var id = res.data.data.id;
+          //定位为延边时返回内容无id，所以手动加上
+          var id = nm ==="延边朝鲜族自治州"?168:res.data.data.id;
           console.log(nm,storageCityName);
           if (nm != storageCityName) {
             messageBox({
@@ -89,6 +91,9 @@ export default {
   margin-left: 20px;
   height: 100%;
   line-height: 45px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 .movie_menu .city_name.router-link-active {
   color: #ef4238;

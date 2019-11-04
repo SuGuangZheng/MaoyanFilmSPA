@@ -1,3 +1,4 @@
+// import commingSoon from "@/components/CommingSoon";
 export default {
   path: "/movie",
   component: () => import("@/views/Movie"),
@@ -13,6 +14,7 @@ export default {
     {
       path: "commingSoon",
       component: () => import("@/components/CommingSoon")
+      // component: commingSoon
     },
     {
       path: "search",
