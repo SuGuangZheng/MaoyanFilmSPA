@@ -20,9 +20,7 @@
 			</keep-alive>
 		</div>
 		<TabBar></TabBar>
-		<transition>
-			<router-view name="detail"></router-view>
-		</transition>
+		<router-view name="detail"></router-view>
 	</div>
 </template>
 
