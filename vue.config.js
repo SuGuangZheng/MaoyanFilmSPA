@@ -1,5 +1,6 @@
 /* eslint-disable prettier/prettier */
 module.exports={
+    publicPath:"/piaopiao",
     devServer:{
         proxy:{
             '/api':{

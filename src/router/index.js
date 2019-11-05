@@ -7,16 +7,17 @@ import cinemaRouter from "./cinema";
 Vue.use(VueRouter);
 
 const routes = [
-  movieRouter,
-  mineRouter,
-  cinemaRouter,
-  { path: "/", redirect: "/movie" }
+    movieRouter,
+    mineRouter,
+    cinemaRouter,
+    { path: "/", redirect: "/movie" }
 ];
 
 const router = new VueRouter({
-  mode: "history",
-  base: process.env.BASE_URL,
-  routes
+    mode: "history",
+    //   base: process.env.BASE_URL,
+    base: "piaopiao",
+    routes
 });
 
 export default router;
