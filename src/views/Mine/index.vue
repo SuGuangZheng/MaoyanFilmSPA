@@ -1,6 +1,6 @@
 <template>
   <div id="main">
-      <Header title="我的张爽爽"></Header>
+      <Header title="我的票票"></Header>
       <Login></Login>
       <TabBar></TabBar>
       
