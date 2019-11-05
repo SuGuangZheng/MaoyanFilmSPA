@@ -18,7 +18,7 @@
 		<!-- 第一个li用于显示下拉更新中 -->
 		<li class="pullDown" ref="loading">{{pullDownMsg}}</li>
         <li v-for="item in comingList" :key="item.id">
-          <div class="pic_show">
+          <div class="pic_show"  @tap="handleToDetail(item.id)">
             <img :src="item.img|setWH('120.180')" />
           </div>
           <div class="info_list">
@@ -50,8 +50,8 @@ export default {
     };
   },
   methods:{
-	  	handleToDetail() {
-      console.log("dianji");
+	  	handleToDetail(movieid) {
+      this.$router.push("/movie/detail/2/" + movieid);
     },
     //下拉开始更新
     handleStartUpdating(pos){
