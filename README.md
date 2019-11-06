@@ -1,24 +1,16 @@
-# maoyanfilmspa
+# maoyanfilmspa   
 
-## Project setup
-```
-npm install
-```
+项目地址：<http://152.136.156.229/piaopiao/>
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+> vue,vue-cli  
+> webpack  
+> axios  
+> swiper
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## todo:  
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+>  加入mintUI优化一些交互效果  
+>  配色等细节再打磨一下  
+>  继续开发剩余功能    
+  
+-   -   -
