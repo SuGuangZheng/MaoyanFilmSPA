@@ -1,6 +1,6 @@
 <template>
 	<div id="main">
-		<Header title="苏广正票票"></Header>
+		<Header title="苏票票"></Header>
 		<div id="content">
 			<div class="movie_menu">
 				<router-link to="city" tag="div" class="city_name">
@@ -35,6 +35,7 @@
 			TabBar
 		},
 		mounted() {
+            var self = this;
 			setTimeout(() => {
 				this.axios.get("/api/getLocation").then(res => {
 					var msg = res.data.msg;
@@ -61,6 +62,10 @@
 									window.location.reload();
 									// this.$store.commit("city/CITY_INFO", { nm, id });
 									// console.log(this);
+								},
+								handleCancel() {
+									// console.log(this);
+									self.$router.push("/movie/city");
 								}
 							});
 						}

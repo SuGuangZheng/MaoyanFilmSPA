@@ -30,12 +30,14 @@ var messageBox = function (opts) {
             ok: defaults.ok
         },
         methods: {
+            //切换城市，点击后跳转到城市选择页
             handleCancel() {
                 //bind只是把handleCancel里的this绑定到外面的this，但不会执行handleCancel
                 //call是立即执行handleCancel，且执行时把里面的this绑定到外面这个this。
                 // defaults.handleCancel && defaults.handleCancel.bind(this);
-                // console.log(this);//此处的this指向当前这个vue组件(创建出来的对象，也就是vm)
+                console.log(this);//此处的this指向当前这个vue组件(创建出来的对象，也就是vm)
                 defaults.handleCancel && defaults.handleCancel.call(this);
+                //如果调用者传进来了这个方法(又放在defaults里了)，就执行传进来的，再执行下面的
                 document.body.removeChild(vm.$el);
             },
             handleOk() {

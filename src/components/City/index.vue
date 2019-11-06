@@ -33,6 +33,7 @@
           v-for="(item,index) in cityList"
           :key="item.index"
           @touchstart="handleToIndex(index)"
+          @click="handleToIndex(index)"
         >{{item.index}}</li>
       </ul>
     </div>
